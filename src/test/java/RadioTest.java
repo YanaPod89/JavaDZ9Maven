@@ -43,12 +43,36 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSetNextStationZero2() {
+        Radio radio = new Radio(50);
+        radio.setCurrentStation(radio.getMaxStation());
+        radio.setNextStation();
+
+        int expected = radio.getMinStation();
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetPrevStationNine() {
         Radio radio = new Radio();
         radio.setCurrentStation(0);
         radio.setPrevStation();
 
         int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetPrevStation49() {
+        Radio radio = new Radio(50);
+        radio.setCurrentStation(radio.getMinStation());
+        radio.setPrevStation();
+
+        int expected = radio.getMaxStation();
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -65,6 +89,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 
     @Test
     public void shouldSetNewStation() {
@@ -98,6 +123,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 
     // Volume
     @Test
