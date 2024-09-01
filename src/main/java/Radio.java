@@ -4,11 +4,11 @@ public class Radio {
     private int minStation = 0;
     private int currentStation = minStation;
 
-    public Radio () {
+    public Radio() {
     }
 
     public Radio(int size) {
-    maxStation = minStation + size - 1;
+        maxStation = minStation + size - 1;
     }
 
     public int getMaxStation() {
